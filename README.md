@@ -11,6 +11,6 @@ Repository that contains autotests for Brain-up project.
 
 Full list of **suites** can be found in a directory: `brn-autotests\src\test\resources\suites`
 
-Full list of **environments** can be found in a directory: `brn-autotests\src\test\resources\environments.properties`
+Full list of **environments** can be found in config: `brn-autotests\src\test\resources\environments.properties`
 
 **Example:** `mvn clean test -DsuiteXmlFile=ContractTests.xml -Denv=prod`
