@@ -6,6 +6,7 @@ import static com.jayway.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class ExerciseContractTests extends InitTest {
+
     RequestSpecification rspecExercise;
 
     @BeforeClass
