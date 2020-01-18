@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "seriesId": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "level": {
+              "type": "integer"
+            },
+            "exerciseType": {
+              "type": "string"
+            },
+            "template": {
+              "type": "string"
+            },
+            "available": {
+              "type": "boolean"
+            },
+            "tasks": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "seriesId",
+            "id",
+            "name",
+            "description",
+            "level",
+            "exerciseType",
+            "template",
+            "available",
+            "tasks"
+          ]
+        }
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": {}
+    },
+    "meta": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "data",
+    "errors",
+    "meta"
+  ]
+}

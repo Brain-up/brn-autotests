@@ -4,6 +4,7 @@
         <classes>
             <class name="GroupContractTests" />
             <class name="SeriesContactTests" />
+            <class name="ExerciseContractTests" />
         </classes>
     </test>
 </suite>
