@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "exerciseType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "correctAnswer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "audioFileUrl": {
+              "type": "string"
+            },
+            "word": {
+              "type": "string"
+            },
+            "wordType": {
+              "type": "string"
+            },
+            "pictureFileUrl": {
+              "type": "string"
+            },
+            "soundsCount": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "audioFileUrl",
+            "word",
+            "wordType",
+            "pictureFileUrl",
+            "soundsCount"
+          ]
+        },
+        "serialNumber": {
+          "type": "integer"
+        },
+        "answerOptions": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "audioFileUrl": {
+                  "type": "string"
+                },
+                "word": {
+                  "type": "string"
+                },
+                "wordType": {
+                  "type": "string"
+                },
+                "pictureFileUrl": {
+                  "type": "string"
+                },
+                "soundsCount": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id",
+                "audioFileUrl",
+                "word",
+                "wordType",
+                "pictureFileUrl",
+                "soundsCount"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "exerciseType",
+        "name",
+        "correctAnswer",
+        "serialNumber",
+        "answerOptions"
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": {}
+    },
+    "meta": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "data",
+    "errors",
+    "meta"
+  ]
+}
