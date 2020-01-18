@@ -22,12 +22,12 @@ public class SeriesContactTests extends InitTest {
     @Test(description = "/series?groupId={id}")
     public void checkSeriesContract() {
         given().spec(rspecSeries).when().queryParam("groupId", "1").get("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/series_by_group.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/series_by_group.json")).statusCode(200);
     }
 
     @Test(description = "/series/{seriesId}")
     public void checkSeriesContract_2() {
         given().spec(rspecSeries).when().get("/2").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/series.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/series.json")).statusCode(200);
     }
 }

@@ -20,13 +20,13 @@ public class GroupContractTests extends InitTest {
     @Test(description = "/groups")
     public void checkGroupContract() {
         given().spec(rspecGroup).when().get("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/group.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/group.json")).statusCode(200);
 
     }
 
     @Test(description = "/groups/{groupId}")
     public void checkGroupContract_2() {
         given().spec(rspecGroup).when().get("/1").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/groups.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/groups.json")).statusCode(200);
     }
 }

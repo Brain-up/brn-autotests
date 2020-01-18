@@ -18,14 +18,14 @@ public class ExerciseContractTests extends InitTest {
     @Test(description = "/exercises")
     public void checkExerciseContract() {
         given().spec(rspecExercise).when().queryParam("seriesId", "1").get("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/exercises_for_single_words.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/exercises_for_single_words.json")).statusCode(200);
 
     }
 
     @Test(description = "/exercises/{exerciseId}")
     public void checkExerciseContract_2() {
         given().spec(rspecExercise).when().get("/1").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/exercise_for_single_words.json"));
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/exercise_for_single_words.json")).statusCode(200);
 
     }
 }
