@@ -1,5 +1,5 @@
 import com.jayway.restassured.specification.RequestSpecification;
-import entities.StudyHistoryPOJO;
+import entities.StudyHistory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,7 +17,14 @@ public class StudyHistoryContractTests extends InitTest{
         init.setBaseUri();
         rspecStudyHist = init.setRequestSpecStudyHist();
 
-        StudyHistoryPOJO req = new StudyHistoryPOJO(1, "2019-12-18T13:53:06.366Z", 2, 1, "2019-12-18T13:53:06.366Z", 2);
+        StudyHistory req = StudyHistory.newBuilder()
+                .setTaskCount(1)
+                .setEndTime("2019-12-18T13:53:06.366Z")
+                .setExerciseId(2)
+                .setRepetitionIndex(1)
+                .setStartTime("2019-12-18T13:53:06.366Z")
+                .setUserId(2)
+                .build();
 
         json = JsonUtils.toJson(req);
     }
