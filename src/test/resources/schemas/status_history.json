@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "userId": {
+      "type": "integer"
+    },
+    "exerciseId": {
+      "type": "integer"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "tasksCount": {
+      "type": "integer"
+    },
+    "repetitionIndex": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "userId",
+    "exerciseId",
+    "startTime",
+    "endTime",
+    "tasksCount",
+    "repetitionIndex"
+  ]
+}

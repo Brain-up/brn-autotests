@@ -6,6 +6,7 @@
             <class name="SeriesContactTests" />
             <class name="ExerciseContractTests" />
             <class name="TasksContractTests" />
+            <class name="StudyHistoryContractTests" />
         </classes>
     </test>
 </suite>
