@@ -32,18 +32,15 @@ public class StudyHistory {
             return this;
         }
 
-
         public Builder setRepetitionIndex(int repetitionIndex) {
             StudyHistory.this.repetitionIndex = repetitionIndex;
             return this;
         }
 
-
         public Builder setStartTime(String startTime) {
             StudyHistory.this.startTime = startTime;
             return this;
         }
-
 
         public Builder setUserId(int userId) {
             StudyHistory.this.userId = userId;
