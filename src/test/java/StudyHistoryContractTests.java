@@ -32,6 +32,6 @@ public class StudyHistoryContractTests extends InitTest{
     @Test(description = "/study-history")
     public void checkStudyHistContract() {
         given().spec(rspecStudyHist).when().body(json).post("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/status_history.json")).statusCode(200);
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/status_history.json")).statusCode(200).log().all();
     }
 }

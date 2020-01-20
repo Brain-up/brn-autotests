@@ -19,13 +19,13 @@ public class TasksContractTests extends InitTest {
     @Test(description = "/tasks?exerciseId={id}")
     public void checkTasksContract() {
         given().spec(rspecTasks).when().queryParam("exerciseId", "1").get("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/tasks_by_exercise.json")).statusCode(200);
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/tasks_by_exercise.json")).statusCode(200).log().all();
     }
 
     @Test(description = "/tasks/{exerciseId}")
     public void checkTasksContract_2() {
         given().spec(rspecTasks).when().get("/1").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/task.json")).statusCode(200);
+                .assertThat().body(matchesJsonSchemaInClasspath("schemas/task.json")).statusCode(200).log().all();
     }
 
 
