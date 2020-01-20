@@ -1,21 +1,28 @@
+package contractTests;
+
 import com.jayway.restassured.specification.RequestSpecification;
 import entities.StudyHistory;
+import helpers.InitRestAssured;
+import helpers.InitTest;
+import helpers.JsonUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
+import static enums.Uri.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class StudyHistoryContractTests extends InitTest{
+public class StudyHistoryContractTests extends InitTest {
 
-    RequestSpecification rspecStudyHist;
-    String json;
+    private RequestSpecification rspec;
+    private String json;
+    private final String STATUS_HIST = "schemas/status_history.json";
 
     @BeforeClass
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspecStudyHist = init.setRequestSpecStudyHist();
+        rspec = init.setReqSpec(STUDY_HIST_PATH);
 
         StudyHistory req = StudyHistory.newBuilder()
                 .setTaskCount(1)
@@ -31,7 +38,7 @@ public class StudyHistoryContractTests extends InitTest{
 
     @Test(description = "/study-history")
     public void checkStudyHistContract() {
-        given().spec(rspecStudyHist).when().body(json).post("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath("schemas/status_history.json")).statusCode(200).log().all();
+        given().spec(rspec).when().body(json).post("").then()
+                .assertThat().body(matchesJsonSchemaInClasspath(STATUS_HIST)).statusCode(200).log().all();
     }
 }

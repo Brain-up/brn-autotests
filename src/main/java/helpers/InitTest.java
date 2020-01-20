@@ -1,20 +1,22 @@
+package helpers;
+
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class InitTest {
 
-    static String baseUri;
+    public static String baseUri;
 
     @Parameters({"env"})
     @BeforeSuite(alwaysRun = true)
-    public void beforeTest(@Optional("epam") final String env) {
+    public void beforeTest(@Optional("prod") final String env) {
         switch (env) {
             case "epam":
-                baseUri = PropertiesUtils.getEnv("epam");
+                baseUri = PropertyUtils.getEnv("epam");
                 break;
             case "prod":
-                baseUri = PropertiesUtils.getEnv("prod");
+                baseUri = PropertyUtils.getEnv("prod");
                 break;
             default:
         }

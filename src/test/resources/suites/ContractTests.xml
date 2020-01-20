@@ -2,11 +2,11 @@
 <suite name="Regression" parallel="tests" thread-count="4" verbose="1">
     <test name = "ContractTests">
         <classes>
-            <class name="GroupContractTests" />
-            <class name="SeriesContactTests" />
-            <class name="ExerciseContractTests" />
-            <class name="TasksContractTests" />
-            <class name="StudyHistoryContractTests" />
+            <class name="contractTests.GroupContractTests" />
+            <class name="contractTests.SeriesContactTests" />
+            <class name="contractTests.ExerciseContractTests" />
+            <class name="contractTests.TasksContractTests" />
+            <class name="contractTests.StudyHistoryContractTests" />
         </classes>
     </test>
 </suite>

@@ -1,8 +1,10 @@
+package helpers;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesUtils {
+public class PropertyUtils {
 
     private static final Properties ENV;
 
