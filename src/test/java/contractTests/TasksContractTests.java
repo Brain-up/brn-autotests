@@ -20,7 +20,7 @@ public class TasksContractTests extends InitTest {
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspec = init.setReqSpec(TASKS_PATH);
+        rspec = init.setBaseReqSpec(TASKS_PATH);
     }
 
     @Test(description = "/tasks?exerciseId={id}")

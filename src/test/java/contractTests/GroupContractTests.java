@@ -21,7 +21,7 @@ public class GroupContractTests extends InitTest {
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspec = init.setReqSpec(GROUP_PATH);
+        rspec = init.setBaseReqSpec(GROUP_PATH);
     }
 
     @Test(description = "/groups")

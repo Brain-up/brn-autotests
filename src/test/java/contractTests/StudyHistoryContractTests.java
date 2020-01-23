@@ -22,7 +22,7 @@ public class StudyHistoryContractTests extends InitTest {
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspec = init.setReqSpec(STUDY_HIST_PATH);
+        rspec = init.setBaseReqSpec(STUDY_HIST_PATH);
 
         StudyHistory req = StudyHistory.newBuilder()
                 .setTaskCount(1)
@@ -39,6 +39,6 @@ public class StudyHistoryContractTests extends InitTest {
     @Test(description = "/study-history")
     public void checkStudyHistContract() {
         given().spec(rspec).when().body(json).post("").then()
-                .assertThat().body(matchesJsonSchemaInClasspath(STATUS_HIST)).statusCode(200).log().all();
+                .assertThat().body(matchesJsonSchemaInClasspath(STATUS_HIST)).log().all();
     }
 }

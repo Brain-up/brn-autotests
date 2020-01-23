@@ -21,7 +21,7 @@ public class ExerciseContractTests extends InitTest {
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspec = init.setReqSpec(EXERCISE_PATH);
+        rspec = init.setBaseReqSpec(EXERCISE_PATH);
     }
 
     @Test(description = "single words series /exercises?seriesId={id}")
@@ -63,6 +63,5 @@ public class ExerciseContractTests extends InitTest {
     public void checkExerciseContract_6() {
         given().spec(rspec).when().get("/2").then()
                 .assertThat().body(matchesJsonSchemaInClasspath(EXERC)).statusCode(200).log().all();
-
     }
 }

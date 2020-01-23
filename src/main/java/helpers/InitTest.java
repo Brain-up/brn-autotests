@@ -18,8 +18,11 @@ public class InitTest {
             case "prod":
                 baseUri = PropertyUtils.getEnv("prod");
                 break;
-            default:
         }
+    }
+
+    public static String getBaseUri() {
+        return baseUri;
     }
 }
 

@@ -22,7 +22,7 @@ public class SeriesContactTests extends InitTest {
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         init.setBaseUri();
-        rspec = init.setReqSpec(SERIES_PATH);
+        rspec = init.setBaseReqSpec(SERIES_PATH);
     }
 
     @Test(description = "/series?groupId={id}")
