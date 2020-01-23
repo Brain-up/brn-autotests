@@ -3,7 +3,7 @@
     <test name = "ContractTests">
         <classes>
             <class name="contractTests.GroupContractTests" />
-            <class name="contractTests.SeriesContactTests" />
+            <class name="contractTests.SeriesContractTests" />
             <class name="contractTests.ExerciseContractTests" />
             <class name="contractTests.TasksContractTests" />
             <class name="contractTests.StudyHistoryContractTests" />

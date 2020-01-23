@@ -12,7 +12,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 
 
-public class SeriesContactTests extends InitTest {
+public class SeriesContractTests extends InitTest {
 
     private RequestSpecification rspec;
     private final String SERIES_BY_GROUP = "schemas/series_by_group.json";
