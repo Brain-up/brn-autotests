@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <suiteXmlFile>tests.xml</suiteXmlFile>
+        <suiteXmlFile>ContractTests.xml</suiteXmlFile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -24,7 +24,6 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>src/test/resources/suites/${suiteXmlFile}</suiteXmlFile>
-                            <outputDirectory>autotest/target/surefire-reports</outputDirectory>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
