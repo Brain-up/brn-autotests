@@ -24,6 +24,7 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>src/test/resources/suites/${suiteXmlFile}</suiteXmlFile>
+                            <outputDirectory>autotest/target/surefire-reports</outputDirectory>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
