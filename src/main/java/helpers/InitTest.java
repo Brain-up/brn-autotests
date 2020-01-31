@@ -20,10 +20,6 @@ public class InitTest {
                 break;
         }
     }
-
-    public static String getBaseUri() {
-        return baseUri;
-    }
 }
 
 
