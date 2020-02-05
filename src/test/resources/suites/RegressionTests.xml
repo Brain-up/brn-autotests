@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression" parallel="tests" thread-count="4" verbose="1">
+    <test name = "ContractTests">
+        <classes>
+            <class name="contractTests.GroupContractTests" />
+            <class name="contractTests.SeriesContractTests" />
+            <class name="contractTests.ExerciseContractTests" />
+            <class name="contractTests.TasksContractTests" />
+            <class name="contractTests.StudyHistoryContractTests" />
+            <class name="dataTests.FirstExerciseTest" />
+        </classes>
+    </test>
+</suite>

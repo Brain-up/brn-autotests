@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
-import static enums.FilePath.SCHEMA;
-import static enums.Uri.*;
+import static enums.FilePathEnum.SCHEMA;
+import static enums.UriEnum.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class StudyHistoryContractTests extends InitTest {

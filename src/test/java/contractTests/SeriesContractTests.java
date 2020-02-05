@@ -6,9 +6,9 @@ import helpers.InitTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import static com.jayway.restassured.RestAssured.given;
-import static enums.FilePath.SCHEMA;
-import static enums.Uri.GROUP_ID;
-import static enums.Uri.SERIES_PATH;
+import static enums.FilePathEnum.SCHEMA;
+import static enums.UriEnum.GROUP_ID;
+import static enums.UriEnum.SERIES_PATH;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 
