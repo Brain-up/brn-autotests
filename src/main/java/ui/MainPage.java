@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import static helpers.InitTest.*;
 
 
@@ -34,7 +36,6 @@ public class MainPage {
 
     public void open() {
         driver.get(baseUri);
-        Driver.waitPage();
     }
 
     public void selectGroup(String groupName) {

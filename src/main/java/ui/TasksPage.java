@@ -14,7 +14,6 @@ public class TasksPage {
 
     public TasksPage(WebDriver driver) {
         this.driver = driver;
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         PageFactory.initElements(driver, this);
     }
 
@@ -25,12 +24,10 @@ public class TasksPage {
     private List<WebElement> answers;
 
     public void play() {
-        Driver.waitPage();
         play.click();
     }
 
     public void selectCorrectAnswer(String answer) {
-        Driver.waitPage();
         try {
             answers.forEach(ans -> {if (ans.getText().equals(answer)) ans.click();});
         }

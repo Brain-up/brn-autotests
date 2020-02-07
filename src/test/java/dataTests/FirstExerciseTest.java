@@ -11,6 +11,8 @@ import ui.ExercisePage;
 import ui.MainPage;
 import ui.TasksPage;
 
+import java.util.concurrent.TimeUnit;
+
 import static enums.DataEnum.*;
 import static enums.UriEnum.NO_NOISE;
 import static enums.UriEnum.PIC;
@@ -29,6 +31,8 @@ public class FirstExerciseTest extends InitTest {
     @BeforeClass
     public void beforeClass() {
        driver = getProxyDriver();
+       driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
        tasks = new TasksPage(driver);
        mainPage = new MainPage(driver);
        exersicesPage = new ExercisePage(driver);
@@ -80,7 +84,11 @@ public class FirstExerciseTest extends InitTest {
         writeHar(getCurrentHar());
         checkMaterial(HAR_FILE_NAME, PIC.value, ГАД.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, ДУБ.audio);
+
+        createHar();
         tasks.selectCorrectAnswer(ДУБ.value);
+        writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, ДУБ.pic);
     }
 
     public void checkMaterial(String har, String path, String option) {

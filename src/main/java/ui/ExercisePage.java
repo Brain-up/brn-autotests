@@ -21,7 +21,6 @@ public class ExercisePage {
 
 
     public void selectSingleSyllableEx(int exNumber) {
-       Driver.waitPage();
        singleSyllableNoNoiseEx.get(exNumber).click();
     }
 }
