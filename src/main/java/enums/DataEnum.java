@@ -20,6 +20,7 @@ public enum DataEnum {
     DataEnum(String value, String audio, String pic) {
         this.value = value;
         this.audio = audio;
+        this.pic = pic;
     }
 
     public static String getNoNoise(DataEnum  option) {

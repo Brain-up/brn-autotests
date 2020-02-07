@@ -13,6 +13,7 @@ import ui.TasksPage;
 
 import static enums.DataEnum.*;
 import static enums.UriEnum.NO_NOISE;
+import static enums.UriEnum.PIC;
 import static helpers.BrowserProxy.*;
 import static helpers.JsonUtils.*;
 import static ui.Driver.getProxyDriver;
@@ -39,7 +40,7 @@ public class FirstExerciseTest extends InitTest {
     }
 
     @Test
-    public void checkFirstExersice() {
+    public void checkFirstExercise() {
         mainPage.open();
         mainPage.selectGroup(VERBAL.value);
         createHar();
@@ -53,26 +54,31 @@ public class FirstExerciseTest extends InitTest {
         tasks.selectCorrectAnswer(БАЛ.value);
 
         writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, БАЛ.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, БУМ.audio);
 
         createHar();
         tasks.selectCorrectAnswer(БУМ.value);
         writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, БУМ.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, БЫЛь.audio);
 
         createHar();
         tasks.selectCorrectAnswer(БЫЛь.value);
         writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, БЫЛь.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, ВИТЬ.audio);
 
         createHar();
         tasks.selectCorrectAnswer(ВИТЬ.value);
         writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, ВИТЬ.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, ГАД.audio);
 
         createHar();
         tasks.selectCorrectAnswer(ГАД.value);
         writeHar(getCurrentHar());
+        checkMaterial(HAR_FILE_NAME, PIC.value, ГАД.pic);
         checkMaterial(HAR_FILE_NAME, NO_NOISE.value, ДУБ.audio);
         tasks.selectCorrectAnswer(ДУБ.value);
     }
