@@ -30,7 +30,7 @@
               "type": "string"
             },
             "pictureFileUrl": {
-              "type": "string"
+              "type": ["string", "null"]
             },
             "soundsCount": {
               "type": "integer"
@@ -67,7 +67,7 @@
                   "type": "string"
                 },
                 "pictureFileUrl": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "soundsCount": {
                   "type": "integer"
