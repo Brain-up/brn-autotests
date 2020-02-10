@@ -9,30 +9,11 @@ import com.jayway.restassured.specification.RequestSpecification;
 import enums.UriEnum;
 import java.io.File;
 import static com.jayway.restassured.RestAssured.given;
-import static enums.UriEnum.GROUP_PATH;
-import static helpers.InitTest.baseUri;
+import static helpers.InitTest.*;
 
 
 
 public class InitRestAssured {
-
-    static final String AUTH_HEADER = "authorization";
-    static final String AUTH_HEADER_VALUE = "Basic YWRtaW46YWRtaW4=";
-    static Cookies cookie;
-
-    {
-        RestAssured.baseURI = InitTest.baseUri;
-
-        cookie = given()
-                .when()
-                .header(AUTH_HEADER, AUTH_HEADER_VALUE)
-                .get(baseUri + GROUP_PATH.value)
-                .then()
-                .statusCode(200)
-                .extract()
-                .response()
-                .getDetailedCookies();
-    }
 
     public RequestSpecification setBaseReqSpec(UriEnum basePath) {
          return  given()

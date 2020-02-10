@@ -18,6 +18,7 @@ import static enums.UriEnum.NO_NOISE;
 import static enums.UriEnum.PIC;
 import static helpers.BrowserProxy.*;
 import static helpers.JsonUtils.*;
+import static ui.Driver.*;
 import static ui.Driver.getProxyDriver;
 import static ui.MainPage.ExerciseLists.VERBAL;
 
@@ -25,30 +26,31 @@ public class FirstExerciseTest extends InitTest {
 
     TasksPage tasks;
     MainPage mainPage;
-    ExercisePage exersicesPage;
+    ExercisePage exercisePage;
     WebDriver driver;
 
     @BeforeClass
     public void beforeClass() {
        driver = getProxyDriver();
        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+       setCookies(driver);
 
        tasks = new TasksPage(driver);
        mainPage = new MainPage(driver);
-       exersicesPage = new ExercisePage(driver);
+       exercisePage = new ExercisePage(driver);
     }
 
     @AfterClass
     public void afterClass() {
-        driver.quit();
+        driver.close();
     }
 
     @Test
-    public void checkFirstExercise() {
+    public void checkExercise_1() {
         mainPage.open();
         mainPage.selectGroup(VERBAL.value);
         createHar();
-        exersicesPage.selectSingleSyllableEx(0);
+        exercisePage.selectSingleSyllableEx(0);
         tasks.play();
 
         writeHar(getCurrentHar());
