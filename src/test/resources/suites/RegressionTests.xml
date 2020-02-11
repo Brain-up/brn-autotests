@@ -10,6 +10,7 @@
             <class name="dataTests.FirstExerciseTest" />
             <class name="dataTests.SecondExerciseTest" />
             <class name="dataTests.ThirdExerciseTest" />
+            <class name="dataTests.SequenceRecognitionTest" />
         </classes>
     </test>
 </suite>

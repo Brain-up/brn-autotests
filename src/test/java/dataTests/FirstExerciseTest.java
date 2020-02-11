@@ -1,6 +1,5 @@
 package dataTests;
 
-import enums.DataEnum;
 import helpers.InitTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -9,9 +8,6 @@ import org.testng.annotations.Test;
 import ui.ExercisePage;
 import ui.MainPage;
 import ui.TasksPage;
-
-import java.util.EnumSet;
-import java.util.Set;
 
 import static enums.DataEnum.*;
 import static helpers.BrowserProxy.*;
@@ -27,8 +23,6 @@ public class FirstExerciseTest extends InitTest {
     MainPage mainPage;
     ExercisePage exercisePage;
     WebDriver driver;
-
-    Set<DataEnum> set = EnumSet.allOf(DataEnum.class);
 
     @BeforeClass
     public void beforeClass() {
