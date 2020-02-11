@@ -15,6 +15,7 @@ public enum UriEnum {
     EXERCISE_ID("exerciseId"),
 
     NO_NOISE("audio/no_noise/"),
+    NOISE_6DB("audio/noise_6db/"),
     PIC ("pictures/")
     ;
 

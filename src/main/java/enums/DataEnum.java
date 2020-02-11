@@ -2,8 +2,7 @@ package enums;
 
 import helpers.InitTest;
 
-import static enums.UriEnum.NO_NOISE;
-import static enums.UriEnum.PIC;
+import static enums.UriEnum.*;
 
 public enum DataEnum {
 
@@ -41,6 +40,10 @@ public enum DataEnum {
 
     public static String getNoNoise(DataEnum  option) {
         return InitTest.baseUri + NO_NOISE.value + option.audio;
+    }
+
+    public static String getNoise6db(DataEnum  option) {
+        return InitTest.baseUri + NOISE_6DB.value + option.audio;
     }
 
     public static String getPic(DataEnum option) {

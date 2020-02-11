@@ -47,11 +47,11 @@ public class FirstExerciseTest extends InitTest {
     }
 
     @Test
-    public void checkExercise_1() {
+    public void checkExerciseNoNoise_1() {
         mainPage.selectGroup(VERBAL.value);
 
         createHar();
-        exercisePage.selectSingleSyllableEx(0);
+        exercisePage.selectSingleSyllableNoNoiseEx(0);
         tasks.play();
         writeHar(getCurrentHar());
         tasks.checkMaterialsInHar(asList(getNoNoise(БАЛ)));
@@ -64,10 +64,10 @@ public class FirstExerciseTest extends InitTest {
         tasks.checkTaskMaterial(ДУБ, asList(getPic(ДУБ)));
     }
 
-    @Test(dependsOnMethods = {"checkExercise_1"})
-    public void checkExercise_2() {
+    @Test(dependsOnMethods = {"checkExerciseNoNoise_1"})
+    public void checkExerciseNoNoise_2() {
         createHar();
-        exercisePage.selectSingleSyllableEx(1);
+        exercisePage.selectSingleSyllableNoNoiseEx(1);
         tasks.play();
         writeHar(getCurrentHar());
         tasks.checkMaterialsInHar(asList(getNoNoise(ЛИНЬ)));
@@ -80,10 +80,10 @@ public class FirstExerciseTest extends InitTest {
         tasks.checkTaskMaterial(РАБ, asList(getPic(РАБ)));
     }
 
-    @Test(dependsOnMethods = {"checkExercise_2"})
-    public void checkExercise_3() {
+    @Test(dependsOnMethods = {"checkExerciseNoNoise_2"})
+    public void checkExerciseNoNoise_3() {
         createHar();
-        exercisePage.selectSingleSyllableEx(2);
+        exercisePage.selectSingleSyllableNoNoiseEx(2);
         tasks.play();
         writeHar(getCurrentHar());
         tasks.checkMaterialsInHar(asList(getNoNoise(РАК)));

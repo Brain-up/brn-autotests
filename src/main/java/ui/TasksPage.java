@@ -1,8 +1,10 @@
 package ui;
 import enums.DataEnum;
 import net.minidev.json.JSONArray;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -32,11 +34,21 @@ public class TasksPage {
     }
 
     public void selectCorrectAnswer(String answer) {
-        try {
-            answers.forEach(ans -> {if (ans.getText().equals(answer)) ans.click();});
-        }
-        catch(org.openqa.selenium.StaleElementReferenceException ex)
-        {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 3) {
+            try {
+                Actions action = new Actions(driver);
+                WebElement we = driver.findElement(By.cssSelector("[data-test-play-audio-button]"));
+                action.moveToElement(we).build().perform();
+                answers.forEach(ans -> {
+                    if (ans.getText().equals(answer)) ans.click();
+                });
+                result = true;
+                break;
+            } catch (Exception e) {
+            }
+            attempts++;
         }
     }
 

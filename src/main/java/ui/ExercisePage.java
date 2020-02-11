@@ -19,8 +19,14 @@ public class ExercisePage {
     @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Однослоговые слова без шума']")
     private List<WebElement> singleSyllableNoNoiseEx;
 
+    @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Однослоговые слова малым шумом']")
+    private List<WebElement> singleSyllableNoiseEx;
 
-    public void selectSingleSyllableEx(int exNumber) {
+    public void selectSingleSyllableNoNoiseEx(int exNumber) {
        singleSyllableNoNoiseEx.get(exNumber).click();
+    }
+
+    public void selectSingleSyllableNoiseEx(int exNumber) {
+        singleSyllableNoiseEx.get(exNumber).click();
     }
 }
