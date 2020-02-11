@@ -49,8 +49,12 @@ public class SequenceRecognitionTest extends InitTest {
         exercisePage.selectWordSeqEx(0);
         tasks.play();
         writeHar(getCurrentHar());
-        tasks.checkMaterialsInHar(asList(getPicSeries2(БАБУШКА), getPicSeries2(ДЕВОЧКА), getPicSeries2(ДЕДУШКА), getPicSeries2(БРОСАЕТ), getPicSeries2(ЧИТАЕТ),getPicSeries2(РИСУЕТ)));
-
-
+        tasks.checkMaterialsInHar(asList(getPicSeries2(БАБУШКА),
+                getPicSeries2(ДЕВОЧКА),
+                getPicSeries2(ДЕДУШКА),
+                getPicSeries2(БРОСАЕТ),
+                getPicSeries2(ЧИТАЕТ),
+                getPicSeries2(РИСУЕТ)));
+        tasks.selectCorrectAnswers();
     }
 }
