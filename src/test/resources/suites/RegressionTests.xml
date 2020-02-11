@@ -8,6 +8,8 @@
             <class name="contractTests.TasksContractTests" />
             <class name="contractTests.StudyHistoryContractTests" />
             <class name="dataTests.FirstExerciseTest" />
+            <class name="dataTests.SecondExerciseTest" />
+            <class name="dataTests.ThirdExerciseTest" />
         </classes>
     </test>
 </suite>

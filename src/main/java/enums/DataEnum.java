@@ -46,6 +46,10 @@ public enum DataEnum {
         return InitTest.baseUri + NOISE_6DB.value + option.audio;
     }
 
+    public static String getNoise9db(DataEnum  option) {
+        return InitTest.baseUri + NOISE_9DB.value + option.audio;
+    }
+
     public static String getPic(DataEnum option) {
         return InitTest.baseUri + PIC.value + option.pic;
     }

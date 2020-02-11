@@ -58,7 +58,7 @@ public class BrowserProxy {
     }
 
     public static void writeHar(Har har) {
-         Driver.waitPage();
+         Driver.waitPage(4000);
         try {
             File file = new File(HAR_FILE.value + HAR_FILE_NAME);
             if (!file.exists()) {

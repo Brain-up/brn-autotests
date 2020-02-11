@@ -16,6 +16,7 @@ public enum UriEnum {
 
     NO_NOISE("audio/no_noise/"),
     NOISE_6DB("audio/noise_6db/"),
+    NOISE_9DB("audio/noise_9db/"),
     PIC ("pictures/")
     ;
 

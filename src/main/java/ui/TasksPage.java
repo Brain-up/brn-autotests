@@ -41,9 +41,14 @@ public class TasksPage {
                 Actions action = new Actions(driver);
                 WebElement we = driver.findElement(By.cssSelector("[data-test-play-audio-button]"));
                 action.moveToElement(we).build().perform();
-                answers.forEach(ans -> {
-                    if (ans.getText().equals(answer)) ans.click();
-                });
+
+                Driver.waitPage(3500);
+
+                for (WebElement element : answers) {
+                    if (element.getText().equals(answer)) {
+                        element.click();
+                    }
+                }
                 result = true;
                 break;
             } catch (Exception e) {

@@ -16,13 +16,14 @@ public class Driver {
         return new ChromeDriver(bp.capabilities);
     }
 
-    public static void waitPage() {
+    public static void waitPage(int millis) {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
     public static void setCookies(WebDriver driver) {
         Cookie ck = new Cookie("JSESSIONID", cookie.get("JSESSIONID").getValue());
         driver.navigate().to(baseUri);

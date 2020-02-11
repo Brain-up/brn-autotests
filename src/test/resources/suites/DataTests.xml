@@ -3,6 +3,8 @@
     <test name = "ContractTests">
         <classes>
             <class name="dataTests.FirstExerciseTest" />
+            <class name="dataTests.SecondExerciseTest" />
+            <class name="dataTests.ThirdExerciseTest" />
         </classes>
     </test>
 </suite>
