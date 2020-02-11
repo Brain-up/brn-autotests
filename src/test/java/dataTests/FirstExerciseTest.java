@@ -33,7 +33,7 @@ public class FirstExerciseTest extends InitTest {
     @BeforeClass
     public void beforeClass() {
        driver = getProxyDriver();
-       driver.manage().timeouts().implicitlyWait(3, SECONDS);
+       driver.manage().timeouts().implicitlyWait(4, SECONDS);
        setCookies(driver);
 
        tasks = new TasksPage(driver);
@@ -78,5 +78,22 @@ public class FirstExerciseTest extends InitTest {
         tasks.checkTaskMaterial(ПАР, asList(getPic(ПАР), getNoNoise(ПЯТЬ)));
         tasks.checkTaskMaterial(ПЯТЬ, asList(getPic(ПЯТЬ), getNoNoise(РАБ)));
         tasks.checkTaskMaterial(РАБ, asList(getPic(РАБ)));
+    }
+
+    @Test(dependsOnMethods = {"checkExercise_2"})
+    public void checkExercise_3() {
+        createHar();
+        exercisePage.selectSingleSyllableEx(2);
+        tasks.play();
+        writeHar(getCurrentHar());
+        tasks.checkMaterialsInHar(asList(getNoNoise(РАК)));
+
+        tasks.checkTaskMaterial(РАК, asList(getPic(РАК), getNoNoise(РОЖ)));
+        tasks.checkTaskMaterial(РОЖ, asList(getPic(РОЖ), getNoNoise(СЕТЬ)));
+        tasks.checkTaskMaterial(СЕТЬ, asList(getPic(СЕТЬ), getNoNoise(ТОПЬ)));
+        tasks.checkTaskMaterial(ТОПЬ, asList(getPic(ТОПЬ), getNoNoise(ХОД)));
+        tasks.checkTaskMaterial(ХОД, asList(getPic(ХОД), getNoNoise(ШЕФ)));
+        tasks.checkTaskMaterial(ШЕФ, asList(getPic(ШЕФ), getNoNoise(МОР)));
+        tasks.checkTaskMaterial(МОР, asList(getPic(МОР)));
     }
 }
