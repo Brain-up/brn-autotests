@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 
 import static enums.DataEnum.*;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static ui.Driver.getProxyDriver;
-import static ui.Driver.setCookies;
+import static ui.Driver.*;
 import static ui.MainPage.ExerciseLists.VERBAL;
 
 public class ProgressBarSet1Tests extends InitTest {
@@ -21,7 +20,7 @@ public class ProgressBarSet1Tests extends InitTest {
 
     @BeforeClass
     public void beforeClass() {
-        driver = getProxyDriver();
+        driver = getDriver();
         driver.manage().timeouts().implicitlyWait(800, MILLISECONDS);
         setCookies(driver);
 
