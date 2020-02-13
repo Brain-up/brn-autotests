@@ -8,7 +8,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.HashMap;
@@ -22,6 +21,7 @@ import static helpers.JsonUtils.getUrlHar;
 import static org.openqa.selenium.By.cssSelector;
 import static org.openqa.selenium.By.xpath;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.testng.Assert.*;
 
 
 public class TasksPage {
@@ -38,8 +38,17 @@ public class TasksPage {
     @FindBy(css = "[data-test-start-task-button]")
     private WebElement play;
 
-    @FindBy(xpath = "//button[@data-test-task-answer-option]")
+    @FindBy(xpath = "//*[@data-test-play-audio-button]")
+    private WebElement playAudioDisabled;
+
+    @FindBy(xpath = "//*[@data-test-task-answer-option]")
     private List<WebElement> answers;
+
+    @FindBy(xpath = "//*[@data-test-task-answer and @disabled]")
+    private List<WebElement> disabledAnswers;
+
+    @FindBy(xpath = "//*[@data-test-timer-wrapper]/button")
+    private WebElement timerButton;
 
     private static final String progressBarCompleted = "//*[@style='--progress:100%;']";
 
@@ -62,6 +71,28 @@ public class TasksPage {
         }
     }
 
+    @Step
+    public void checkAnswersDisabled(int size, boolean isDisabled) {
+        Driver.waitPage(2000);
+        if (isDisabled) {
+        assertTrue(disabledAnswers.size() == size);
+        } else assertTrue(disabledAnswers.size() == 0);
+
+    }
+
+    @Step
+    public void checkPlayAudioButtonDisabled(boolean isDisabled) {
+        if (isDisabled) {
+            assertFalse(playAudioDisabled.isEnabled());
+        } else assertTrue(playAudioDisabled.isEnabled());
+    }
+
+    @Step
+    public void clickTimerButton() {
+        Driver.waitPage(2000);
+        timerButton.click();
+    }
+
     public List<WebElement> getTransformedItems(int count, boolean isLast) {
         if (isLast) {
             wait.until(
@@ -78,7 +109,7 @@ public class TasksPage {
     public void checkProgressItemMoved(int totalNumber, boolean isLast) {
         List<WebElement> items;
                 items = getTransformedItems(totalNumber, isLast);
-                Assert.assertEquals(items.size(), totalNumber);
+                assertEquals(items.size(), totalNumber);
     }
 
     @Step
@@ -120,7 +151,7 @@ public class TasksPage {
     public void checkMaterialsInHar(List<String> materials){
         JSONArray g = getUrlHar(HAR_FILE_NAME);
         for (String element : materials) {
-            Assert.assertTrue(g.contains(element));
+            assertTrue(g.contains(element));
         }
     }
 
