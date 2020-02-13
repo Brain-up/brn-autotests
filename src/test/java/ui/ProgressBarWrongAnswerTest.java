@@ -1,14 +1,15 @@
 package ui;
 
 import helpers.InitTest;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static enums.DataEnum.БАЛ;
+import static enums.DataEnum.БУМ;
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static ui.Driver.getProxyDriver;
+import static ui.Driver.getDriver;
 import static ui.Driver.setCookies;
 import static ui.MainPage.ExerciseLists.VERBAL;
 
@@ -20,7 +21,7 @@ public class ProgressBarWrongAnswerTest extends InitTest {
 
     @BeforeClass
     public void beforeClass() {
-        driver = getProxyDriver();
+        driver = getDriver();
         driver.manage().timeouts().implicitlyWait(2, SECONDS);
         setCookies(driver);
 
@@ -36,11 +37,13 @@ public class ProgressBarWrongAnswerTest extends InitTest {
     }
 
     @Test
-    public void checkItemColor() {
+    public void checkItemIsNotMoved() {
         mainPage.selectGroup(VERBAL.value);
-        exercisePage.selectSingleSyllableNoNoiseEx(1);
+        exercisePage.selectSingleSyllableNoNoiseEx(0);
         tasks.play();
-        driver.findElement(By.xpath("//*[@data-test-progress-indicator-item-number=1]/span")).getCssValue("background-color");
+        tasks.selectCorrectAnswer(БУМ.value);
+        tasks.checkProgressItemMoved(0, false);
+        tasks.selectCorrectAnswer(БАЛ.value);
+        tasks.checkProgressItemMoved(1, false);
     }
-
 }
