@@ -100,7 +100,7 @@ public class ExercisePage {
 
     @Step
     public void checkPageFirstHeader(String title) {
-        Driver.waitPage(500);
+        Driver.waitPage(1000);
         assertEquals(header.getText(), title);
 
     }
