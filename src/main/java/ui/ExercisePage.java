@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.openqa.selenium.By.cssSelector;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.testng.Assert.assertEquals;
 
 public class ExercisePage {
 
@@ -24,6 +27,14 @@ public class ExercisePage {
 
         NavigationMenu(String value) {
             this.value = value;
+        }
+
+        public static List<String> getValues() {
+            List<String> values = new LinkedList<>();
+            for(NavigationMenu element : NavigationMenu.values()) {
+                values.add(element.value);
+            }
+            return values;
         }
     }
 
@@ -48,10 +59,11 @@ public class ExercisePage {
     @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Распознование последовательности слов']")
     private List<WebElement> wordSeqRecEx;
 
-
     @FindBy(css = ".group-nav-list li a")
     private List<WebElement> navMenu;
 
+    @FindBy(xpath = "//*[@data-test-series-navigation-header][1]")
+    private WebElement header;
 
     public void selectSingleSyllableNoNoiseEx(int exNumber) {
         waitExercisePage();
@@ -71,18 +83,25 @@ public class ExercisePage {
     public void waitExercisePage() {
         wait.until(
                 presenceOfElementLocated(cssSelector("[data-test-series-navigation-header]")));
-
     }
 
     public void selectWordSeqEx(int exNumber) {
         wordSeqRecEx.get(exNumber).click();
     }
 
+    @Step
     public void navigateTo(String navOption) {
         for (WebElement item : navMenu) {
             if (item.getText().equals(navOption)) {
                 item.click();
             }
         }
+    }
+
+    @Step
+    public void checkPageFirstHeader(String title) {
+        Driver.waitPage(500);
+        assertEquals(header.getText(), title);
+
     }
 }
