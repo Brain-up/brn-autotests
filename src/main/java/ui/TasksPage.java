@@ -2,12 +2,12 @@ package ui;
 
 import enums.DataEnum;
 import net.minidev.json.JSONArray;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -19,14 +19,19 @@ import java.util.Map;
 import static enums.DataEnum.*;
 import static helpers.BrowserProxy.*;
 import static helpers.JsonUtils.getUrlHar;
+import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.By.xpath;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 
 public class TasksPage {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     public TasksPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, 6, 100);
         PageFactory.initElements(driver, this);
     }
 
@@ -36,32 +41,70 @@ public class TasksPage {
     @FindBy(xpath = "//button[@data-test-task-answer-option]")
     private List<WebElement> answers;
 
+    private static final String progressBarCompleted = "//*[@style='--progress:100%;']";
+
+    private static final String playButton = "[data-test-play-audio-button]";
+
+    private static final String successNotification = ".mb-4";
+
+    private static final String progressItems = "//*[contains(@style, 'transform')]";
+
+    @Step
     public void play() {
-        play.click();
+        int attempts = 0;
+        while(attempts < 3) {
+            try {
+                play.click();
+                break;
+            } catch (Exception e) {
+                attempts++;
+            }
+        }
+    }
+
+    public List<WebElement> getTransformedItems(int count, boolean isLast) {
+        if (isLast) {
+            wait.until(
+                    presenceOfElementLocated(cssSelector(successNotification)));
+        } else
+            wait.until(
+                    presenceOfElementLocated(cssSelector(playButton)));
+
+        return driver.findElements(xpath(progressItems));
+    }
+
+
+    @Step
+    public void checkProgressItemMoved(int totalNumber, boolean isLast) {
+        List<WebElement> items;
+                items = getTransformedItems(totalNumber, isLast);
+                Assert.assertEquals(items.size(), totalNumber);
     }
 
     @Step
     public void selectCorrectAnswer(String answer) {
-        boolean result = false;
+        wait.until(presenceOfElementLocated(xpath(progressBarCompleted)));
+
         int attempts = 0;
-        while(attempts < 3) {
+        while(attempts < 4) {
             try {
                 Actions action = new Actions(driver);
-                WebElement we = driver.findElement(By.cssSelector("[data-test-play-audio-button]"));
+                WebElement we = driver.findElement(cssSelector(playButton));
                 action.moveToElement(we).build().perform();
-
-                Driver.waitPage(3500);
 
                 for (WebElement element : answers) {
                     if (element.getText().equals(answer)) {
                         element.click();
+                        break;
                     }
                 }
-                result = true;
                 break;
             } catch (Exception e) {
+                attempts++;
+                if (attempts == 3) {
+                    throw new AssertionError("Correct answer is not clicked" + attempts);
+                }
             }
-            attempts++;
         }
     }
 
@@ -83,29 +126,30 @@ public class TasksPage {
 
     @Step
     public void selectCorrectAnswers() {
+        wait.until(presenceOfElementLocated(xpath(progressBarCompleted)));
+
         List<String> correctAnswers = retrieveCorrectAnswers();
 
         String actor = String.format("//button[@data-test-task-answer-option = '%s']", correctAnswers.get(0));
         String act = String.format("//button[@data-test-task-answer-option = '%s']", correctAnswers.get(1));
 
-        boolean result = false;
         int attempts = 0;
-        while(attempts < 3) {
+        while(attempts < 4) {
             try {
                 Actions action = new Actions(driver);
-                WebElement we = driver.findElement(By.cssSelector("[data-test-play-audio-button]"));
+                WebElement we = driver.findElement(cssSelector(playButton));
                 action.moveToElement(we).build().perform();
 
-                Driver.waitPage(3500);
+                driver.findElement(xpath(actor)).click();
+                driver.findElement(xpath(act)).click();
 
-                driver.findElement(By.xpath(actor)).click();
-                driver.findElement(By.xpath(act)).click();
-
-                result = true;
                 break;
             } catch (Exception e) {
+                attempts++;
+                if (attempts == 3) {
+                    throw new AssertionError("Correct answer is not clicked");
+                }
             }
-            attempts++;
         }
     }
 

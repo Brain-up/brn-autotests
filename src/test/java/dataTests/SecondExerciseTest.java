@@ -82,8 +82,8 @@ public class SecondExerciseTest extends InitTest {
         writeHar(getCurrentHar());
         tasks.checkMaterialsInHar(asList(getNoise6db(РАК)));
 
-        tasks.checkTaskMaterial(РАК, asList(getPic(РАК), getNoise6db(РОЖ)));
-        tasks.checkTaskMaterial(РОЖ, asList(getPic(РОЖ), getNoise6db(СЕТЬ)));
+        tasks.checkTaskMaterial(РАК, asList(getPic(РАК), getNoise6db(РОЖЬ)));
+        tasks.checkTaskMaterial(РОЖЬ, asList(getPic(РОЖЬ), getNoise6db(СЕТЬ)));
         tasks.checkTaskMaterial(СЕТЬ, asList(getPic(СЕТЬ), getNoise6db(ТОПЬ)));
         tasks.checkTaskMaterial(ТОПЬ, asList(getPic(ТОПЬ), getNoise6db(ХОД)));
         tasks.checkTaskMaterial(ХОД, asList(getPic(ХОД), getNoise6db(ШЕФ)));

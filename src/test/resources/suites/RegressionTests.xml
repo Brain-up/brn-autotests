@@ -1,16 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Regression" parallel="tests" thread-count="4" verbose="1">
+<suite name="RegressionTests" parallel="methods" thread-count="4" verbose="1">
     <test name = "ContractTests">
-        <classes>
-            <class name="contractTests.GroupContractTests" />
-            <class name="contractTests.SeriesContractTests" />
-            <class name="contractTests.ExerciseContractTests" />
-            <class name="contractTests.TasksContractTests" />
-            <class name="contractTests.StudyHistoryContractTests" />
-            <class name="dataTests.FirstExerciseTest" />
-            <class name="dataTests.SecondExerciseTest" />
-            <class name="dataTests.ThirdExerciseTest" />
-            <class name="dataTests.SequenceRecognitionTest" />
-        </classes>
+        <packages>
+            <package name="contractTests.*"/>
+        </packages>
+    </test>
+    <test name = "DataTests" parallel="none">
+        <packages>
+            <package name="dataTests.*"/>
+        </packages>
+    </test>
+    <test name = "UiTests" >
+        <packages>
+            <package name="ui.*"/>
+        </packages>
     </test>
 </suite>

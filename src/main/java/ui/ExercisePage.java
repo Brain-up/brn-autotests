@@ -4,8 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
+import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 public class ExercisePage {
 
@@ -24,9 +28,11 @@ public class ExercisePage {
     }
 
     WebDriver driver;
+    WebDriverWait wait;
 
     public ExercisePage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, 6, 100);
         PageFactory.initElements(driver, this);
     }
 
@@ -48,15 +54,24 @@ public class ExercisePage {
 
 
     public void selectSingleSyllableNoNoiseEx(int exNumber) {
+        waitExercisePage();
        singleSyllableNoNoiseEx.get(exNumber).click();
     }
 
     public void selectSingleSyllableNoiseEx(int exNumber) {
+        waitExercisePage();
         singleSyllableNoiseEx.get(exNumber).click();
     }
 
     public void selectSingleSyllableLoadNoiseEx(int exNumber) {
+        waitExercisePage();
         singleSyllableLoadNoiseEx.get(exNumber).click();
+    }
+
+    public void waitExercisePage() {
+        wait.until(
+                presenceOfElementLocated(cssSelector("[data-test-series-navigation-header]")));
+
     }
 
     public void selectWordSeqEx(int exNumber) {
