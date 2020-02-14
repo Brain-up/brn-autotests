@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import ui.Driver;
 
 import java.io.*;
+import java.util.concurrent.ExecutionException;
 
 import static enums.FilePathEnum.HAR_FILE;
 
@@ -31,7 +32,7 @@ public class BrowserProxy {
 
         proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
     }
 
     public static void stopProxy() {
