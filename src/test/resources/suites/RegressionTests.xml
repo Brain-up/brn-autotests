@@ -1,16 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="RegressionTests" parallel="methods" thread-count="4" verbose="1">
-    <test name = "ContractTests">
+<suite name="RegressionTests" >
+    <test name = "ContractTests"  parallel="methods">
         <packages>
             <package name="contractTests.*"/>
         </packages>
     </test>
-    <test name = "DataTests" parallel="none">
+    <test name = "DataTests" parallel="false">
         <packages>
             <package name="dataTests.*"/>
         </packages>
     </test>
-    <test name = "UiTests" >
+    <test name = "UiTests" parallel="false" >
         <packages>
             <package name="ui.*"/>
         </packages>
