@@ -22,6 +22,7 @@
                     <version>2.22.0</version>
 
                     <configuration>
+                        <useSystemClassLoader>false</useSystemClassLoader>
                         <suiteXmlFiles>
                             <suiteXmlFile>src/test/resources/suites/${suiteXmlFile}</suiteXmlFile>
                         </suiteXmlFiles>
