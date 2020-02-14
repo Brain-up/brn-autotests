@@ -2,6 +2,8 @@ package helpers;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Cookies;
+import io.github.bonigarcia.wdm.DriverManagerType;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -40,6 +42,8 @@ public class InitTest {
                 .extract()
                 .response()
                 .getDetailedCookies();
+
+        WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
     }
 }
 
