@@ -31,8 +31,6 @@ public class BrowserProxy {
         capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
 
         proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
-
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
     }
 
     public static void stopProxy() {
