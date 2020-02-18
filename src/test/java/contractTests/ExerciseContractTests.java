@@ -19,7 +19,7 @@ public class ExerciseContractTests extends InitTest {
     private final String EXERC_SEQ_WORD_SERIES_SCHEMA = SCHEMA.value + "exercises_for_sequence_words.json";
     private final String EXERC_SCHEMA = SCHEMA.value + "exercise.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpec(EXERCISE_PATH);

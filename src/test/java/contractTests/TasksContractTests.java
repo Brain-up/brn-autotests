@@ -18,7 +18,7 @@ public class TasksContractTests extends InitTest {
     private final String TASKS_BY_EXERCISE_SCHEMA = SCHEMA.value + "tasks_by_exercise.json";
     private final String TASK_SCHEMA = SCHEMA.value + "task.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpec(TASKS_PATH);

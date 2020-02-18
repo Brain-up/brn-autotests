@@ -20,7 +20,7 @@ public class StudyHistoryContractTests extends InitTest {
     private String json;
     private final String STATUS_HIST_SCHEMA = SCHEMA.value + "status_history.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpec(STUDY_HIST_PATH);
@@ -37,7 +37,7 @@ public class StudyHistoryContractTests extends InitTest {
         json = JsonUtils.toJson(req);
     }
 
-    @Test(description = "/study-history")
+    @Test(alwaysRun = true, description = "/study-history")
     public void checkStudyHistContract() {
         given().spec(rspec).when().body(json).post("").then()
                 .assertThat().body(matchesJsonSchemaInClasspath(STATUS_HIST_SCHEMA)).log().all();

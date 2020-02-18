@@ -20,7 +20,7 @@ public class SeriesContractTests extends InitTest {
     private final String SERIES_BY_GROUP_SCHEMA = SCHEMA.value + "series_by_group.json";
     private final String SERIES_SCHEMA = SCHEMA.value + "series.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpec(SERIES_PATH);

@@ -20,7 +20,7 @@ public class ProgressBarSeqRecTest extends InitTest {
     ExercisePage exercisePage;
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         driver = getProxyDriver();
         driver.manage().timeouts().implicitlyWait(2000, MILLISECONDS);
@@ -31,7 +31,7 @@ public class ProgressBarSeqRecTest extends InitTest {
         exercisePage = new ExercisePage(driver);
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         Driver.waitPage(1000);
         driver.quit();

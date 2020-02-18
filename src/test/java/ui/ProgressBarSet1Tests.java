@@ -18,7 +18,7 @@ public class ProgressBarSet1Tests extends InitTest {
     ExercisePage exercisePage;
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         driver = getDriver();
         driver.manage().timeouts().implicitlyWait(800, MILLISECONDS);
@@ -29,7 +29,7 @@ public class ProgressBarSet1Tests extends InitTest {
         exercisePage = new ExercisePage(driver);
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         Driver.waitPage(1000);
         driver.quit();

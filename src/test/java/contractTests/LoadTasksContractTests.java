@@ -15,7 +15,7 @@ public class LoadTasksContractTests extends InitTest {
 
     private final String LOAD_TASK_SCHEMA = SCHEMA.value + "loadTaskFile.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpecMultipart(LOAD_TASK_FILE_PATH, "loadTask.csv");

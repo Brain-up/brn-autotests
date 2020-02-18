@@ -19,7 +19,7 @@ public class GroupContractTests extends InitTest {
     private final String GROUP_SCHEMA = SCHEMA.value + "group.json";
     private final String GROUPS_SCHEMA = SCHEMA.value + "groups.json";
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         InitRestAssured init = new InitRestAssured();
         rspec = init.setBaseReqSpec(GROUP_PATH);

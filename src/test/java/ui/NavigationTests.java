@@ -20,7 +20,7 @@ public class NavigationTests extends InitTest {
     TasksPage tasksPage;
     WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeClass() {
         driver = getDriver();
         driver.manage().timeouts().implicitlyWait(3, SECONDS);
@@ -31,7 +31,7 @@ public class NavigationTests extends InitTest {
         tasksPage = new TasksPage(driver);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterClass() {
         driver.quit();
     }
