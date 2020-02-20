@@ -56,7 +56,7 @@ public class ExercisePage {
     @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Однослоговые слова c сильным шумом']")
     private List<WebElement> singleSyllableLoadNoiseEx;
 
-    @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Распознование последовательности слов']")
+    @FindBy(xpath = "//*[@data-test-exercise-level and @data-test-exercise-name ='Шесть слов']")
     private List<WebElement> wordSeqRecEx;
 
     @FindBy(css = ".group-nav-list li a")
