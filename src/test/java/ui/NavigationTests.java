@@ -48,7 +48,7 @@ public class NavigationTests extends InitTest {
         mainPage.selectGroup(VERBAL.value);
         exercisePage.checkPageFirstHeader("Однослоговые слова без шума");
         exercisePage.navigateTo(РАСПОЗНОВАНИЕ_ПОСЛЕДОВАТЕЛЬНОСТИ.value);
-        exercisePage.checkPageFirstHeader("Распознование последовательности слов");
+        exercisePage.checkPageFirstHeader("Шесть слов");
         exercisePage.navigateTo(РАСПОЗНАВАНИЕ_СЛОВ.value);
         exercisePage.checkPageFirstHeader("Однослоговые слова без шума");
 
