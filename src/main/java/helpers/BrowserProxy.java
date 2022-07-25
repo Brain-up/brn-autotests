@@ -6,12 +6,12 @@ import net.lightbody.bmp.client.ClientUtil;
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.Proxy;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ui.Driver;
 
 import java.io.*;
-import java.util.concurrent.ExecutionException;
 
 import static enums.FilePathEnum.HAR_FILE;
 
@@ -76,7 +76,7 @@ public class BrowserProxy {
         }
     }
 
-    public static String readFile(String fileName) {
+     public static String readFile(String fileName) {
         String strLine = null;
         String s = null;
         try{
@@ -90,4 +90,6 @@ public class BrowserProxy {
         }
         return s;
     }
+
+
 }

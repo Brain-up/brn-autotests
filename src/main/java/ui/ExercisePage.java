@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ExercisePage {
 
     public ExercisePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 6, 100);
+        wait = new WebDriverWait(driver, Duration.ofMinutes(6), Duration.ofMillis(100));
         PageFactory.initElements(driver, this);
     }
 
