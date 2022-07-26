@@ -7,13 +7,14 @@ import static helpers.InitTest.*;
 
 
 public class Driver {
+
     public static WebDriver getDriver() {
-        return new ChromeDriver();
+       return new ChromeDriver();
     }
 
     public static WebDriver getProxyDriver() {
         BrowserProxy bp = new BrowserProxy();
-        return new ChromeDriver(bp.capabilities);
+        return new ChromeDriver();
     }
 
     public static void waitPage(int millis) {
